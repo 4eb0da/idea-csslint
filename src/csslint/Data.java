@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class CssLintData {
+public class Data {
 
     private static Path csslintPath;
 
@@ -21,7 +21,7 @@ public class CssLintData {
             "csslint/node_modules/csslint/node_modules/parserlib/lib/node-parserlib.js"
     };
 
-    public CssLintData () {
+    public Data() {
         try {
             csslintPath = Files.createTempDirectory("idea-csslint");
 

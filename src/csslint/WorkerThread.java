@@ -6,17 +6,19 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Path;
 
-public class CssLintThread extends Thread {
+public class WorkerThread extends Thread {
     private Path path;
     private String data;
     private String output;
+    private SettingsStorage storage;
     private boolean res;
 
     public class CssLintThreadException extends Exception {}
 
-    public CssLintThread (Path path, String data) {
+    public WorkerThread(Path path, String data, SettingsStorage storage) {
         this.path = path;
         this.data = data;
+        this.storage = storage;
         res = false;
     }
 
@@ -29,7 +31,11 @@ public class CssLintThread extends Thread {
             stream.close();
 
             File workingDir = new File(path.resolve("csslint/node_modules/csslint").toString());
-            String command = "node cli.js" + " --format=compact " + temp.toString();
+            String ignore = storage.ignoreList();
+            if (!ignore.isEmpty()) {
+                ignore = "--ignore=" + ignore + " ";
+            }
+            String command = "node cli.js" + " --quiet --format=compact " + ignore + temp.toString();
 
             Runtime rt = Runtime.getRuntime();
 
@@ -47,7 +53,6 @@ public class CssLintThread extends Thread {
             }
 
         } catch (InterruptedException ignored) {
-            ignored.printStackTrace();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

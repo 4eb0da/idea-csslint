@@ -2,14 +2,14 @@ package csslint;
 
 import com.intellij.openapi.util.TextRange;
 
-public class CssLintIssue {
+public class Issue {
 
     public enum Type {
         Error,
         Warning
     }
 
-    public CssLintIssue (TextRange range, Type type, String message) {
+    public Issue(TextRange range, Type type, String message) {
         this.range = range;
         this.type = type;
         this.message = message;

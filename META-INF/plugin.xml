@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.github.4eb0da.idea-csslint</id>
   <name>CSSLint</name>
-  <version>0.1</version>
+  <version>0.2</version>
   <!--<vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>-->
 
   <description><![CDATA[
@@ -9,6 +9,8 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      <p>0.2 - Settings added</p>
+      <p>0.1 - Initial version</p>
     ]]>
   </change-notes>
 
@@ -20,9 +22,10 @@
   <depends>com.intellij.modules.platform</depends>
 
   <extensions defaultExtensionNs="com.intellij">
+      <projectConfigurable instance="csslint.Settings"/>
       <localInspection shortName="CSSLint" bundle="csslint.CssLintBundle"
                        key="name" groupKey="group" enabledByDefault="true" level="WARNING"
-                       implementationClass="csslint.CssLintInspection"/>
+                       implementationClass="csslint.Inspection"/>
   </extensions>
 
   <application-components>
@@ -31,6 +34,9 @@
 
   <project-components>
     <!-- Add your project components here -->
+      <component>
+          <implementation-class>csslint.CSSLintProjectComponent</implementation-class>
+      </component>
   </project-components>
 
   <actions>

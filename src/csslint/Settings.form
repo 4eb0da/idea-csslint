@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="csslint.Settings">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="573" height="1186"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <scrollpane id="5f5ee">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="312e" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="490bb" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="1b0b8" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <labelFor value="71a38"/>
+                      <text value="&amp;Maximum waiting time"/>
+                    </properties>
+                  </component>
+                  <component id="71a38" class="javax.swing.JSpinner" binding="waitLimit">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                </children>
+              </grid>
+              <component id="8ef95" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Rules:"/>
+                </properties>
+              </component>
+              <grid id="1c8a4" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="a52cf" layout-manager="GridLayoutManager" row-count="18" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="f0036" class="javax.swing.JCheckBox" binding="importantCheckBox">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;important"/>
+                        </properties>
+                      </component>
+                      <component id="40fef" class="javax.swing.JCheckBox" binding="adjoiningClassesCheckBox">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;adjoining-classes"/>
+                        </properties>
+                      </component>
+                      <component id="4a41" class="javax.swing.JCheckBox" binding="knownPropertiesCheckBox">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;known-properties"/>
+                        </properties>
+                      </component>
+                      <component id="4bc43" class="javax.swing.JCheckBox" binding="boxSizingCheckBox">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;box-sizing"/>
+                        </properties>
+                      </component>
+                      <component id="6026c" class="javax.swing.JCheckBox" binding="boxModelCheckBox">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="b&amp;ox-model"/>
+                        </properties>
+                      </component>
+                      <component id="763f9" class="javax.swing.JCheckBox" binding="overqualifiedElementsCheckBox">
+                        <constraints>
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="o&amp;verqualified-elements"/>
+                        </properties>
+                      </component>
+                      <component id="a559f" class="javax.swing.JCheckBox" binding="displayPropertyGroupingCheckBox">
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;display-property-grouping"/>
+                        </properties>
+                      </component>
+                      <component id="c64c0" class="javax.swing.JCheckBox" binding="bulletproofFontFaceCheckBox">
+                        <constraints>
+                          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="b&amp;ulletproof-font-face"/>
+                        </properties>
+                      </component>
+                      <component id="ea6c8" class="javax.swing.JCheckBox" binding="compatibleVendorPrefixesCheckBox">
+                        <constraints>
+                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;compatible-vendor-prefixes"/>
+                        </properties>
+                      </component>
+                      <component id="bc3ce" class="javax.swing.JCheckBox" binding="regexSelectorsCheckBox">
+                        <constraints>
+                          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;regex-selectors"/>
+                        </properties>
+                      </component>
+                      <component id="f3ef3" class="javax.swing.JCheckBox" binding="errorsCheckBox">
+                        <constraints>
+                          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;errors"/>
+                        </properties>
+                      </component>
+                      <component id="c1525" class="javax.swing.JCheckBox" binding="duplicateBackgroundImagesCheckBox">
+                        <constraints>
+                          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="du&amp;plicate-background-images"/>
+                        </properties>
+                      </component>
+                      <component id="c29a7" class="javax.swing.JCheckBox" binding="duplicatePropertiesCheckBox">
+                        <constraints>
+                          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="dup&amp;licate-properties"/>
+                        </properties>
+                      </component>
+                      <component id="559e0" class="javax.swing.JCheckBox" binding="emptyRulesCheckBox">
+                        <constraints>
+                          <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="emp&amp;ty-rules"/>
+                        </properties>
+                      </component>
+                      <component id="88bf8" class="javax.swing.JCheckBox" binding="selectorMaxApproachingCheckBox">
+                        <constraints>
+                          <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;selector-max-approaching"/>
+                        </properties>
+                      </component>
+                      <component id="84318" class="javax.swing.JCheckBox" binding="gradientsCheckBox">
+                        <constraints>
+                          <grid row="15" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;gradients"/>
+                        </properties>
+                      </component>
+                      <component id="d8897" class="javax.swing.JCheckBox" binding="fallbackColorsCheckBox">
+                        <constraints>
+                          <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="&amp;fallback-colors"/>
+                        </properties>
+                      </component>
+                      <component id="96262" class="javax.swing.JCheckBox" binding="fontSizesCheckBox">
+                        <constraints>
+                          <grid row="17" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="fo&amp;nt-sizes"/>
+                        </properties>
+                      </component>
+                      <component id="345c3" class="javax.swing.JCheckBox" binding="fontFacesCheckBox">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="font-faces"/>
+                        </properties>
+                      </component>
+                      <component id="1a630" class="javax.swing.JCheckBox" binding="floatsCheckBox">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <selected value="false"/>
+                          <text value="floats"/>
+                        </properties>
+                      </component>
+                      <component id="c7314" class="javax.swing.JCheckBox" binding="starPropertyHackCheckBox">
+                        <constraints>
+                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="star-propert&amp;y-hack"/>
+                        </properties>
+                      </component>
+                      <component id="1bfd9" class="javax.swing.JCheckBox" binding="outlineNoneCheckBox">
+                        <constraints>
+                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="outline-none"/>
+                        </properties>
+                      </component>
+                      <component id="57fd1" class="javax.swing.JCheckBox" binding="importCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="import"/>
+                        </properties>
+                      </component>
+                      <component id="1293c" class="javax.swing.JCheckBox" binding="idsCheckBox">
+                        <constraints>
+                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="ids"/>
+                        </properties>
+                      </component>
+                      <component id="ca03a" class="javax.swing.JCheckBox" binding="underscorePropertyHackCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="underscore-property-hack"/>
+                        </properties>
+                      </component>
+                      <component id="d3002" class="javax.swing.JCheckBox" binding="rulesCountCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="rules-count"/>
+                        </properties>
+                      </component>
+                      <component id="d481a" class="javax.swing.JCheckBox" binding="qualifiedHeadingsCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="qualified-headings"/>
+                        </properties>
+                      </component>
+                      <component id="cf7b3" class="javax.swing.JCheckBox" binding="selectorMaxCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="selector-max"/>
+                        </properties>
+                      </component>
+                      <component id="b36f2" class="javax.swing.JCheckBox" binding="shorthandCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="shorthand"/>
+                        </properties>
+                      </component>
+                      <component id="640ca" class="javax.swing.JCheckBox" binding="textIndentCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="text-indent"/>
+                        </properties>
+                      </component>
+                      <component id="966a2" class="javax.swing.JCheckBox" binding="uniqueHeadingsCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="unique-headings"/>
+                        </properties>
+                      </component>
+                      <component id="27d6" class="javax.swing.JCheckBox" binding="universalSelectorCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="universal-selector"/>
+                        </properties>
+                      </component>
+                      <component id="dc3f7" class="javax.swing.JCheckBox" binding="unqualifiedAttributesCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="unqualified-attributes"/>
+                        </properties>
+                      </component>
+                      <component id="54103" class="javax.swing.JCheckBox" binding="vendorPrefixCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="vendor-prefix"/>
+                        </properties>
+                      </component>
+                      <component id="77579" class="javax.swing.JCheckBox" binding="zeroUnitsCheckBox" default-binding="true">
+                        <constraints>
+                          <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="zero-units"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <vspacer id="aed37">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <component id="3e243" class="javax.swing.JCheckBox" binding="useWaitLimitCheckBox" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Use &amp;waiting limit"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+    </children>
+  </grid>
+</form>

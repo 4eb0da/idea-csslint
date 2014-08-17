@@ -15,13 +15,13 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CssLintInspection extends LocalInspectionTool {
+public class Inspection extends LocalInspectionTool {
     private Path csslintPath;
 
-    public CssLintInspection() {
+    public Inspection() {
         super();
 
-        csslintPath = CssLintDataProvider.getInstance().getPath();
+        csslintPath = DataProvider.getInstance().getPath();
     }
 
     @Override
@@ -47,12 +47,18 @@ public class CssLintInspection extends LocalInspectionTool {
                     return;
                 }
 
+                SettingsStorage storage = file.getProject().getComponent(CSSLintProjectComponent.class).settingsStorage();
+
                 Document document = PsiDocumentManager.getInstance(file.getProject()).getCachedDocument(file);
-                CssLintThread thread = new CssLintThread(csslintPath, text);
+                WorkerThread thread = new WorkerThread(csslintPath, text, storage);
                 thread.start();
 
                 try {
-                    thread.join(5000);
+                    if (storage.useWaitLimit()) {
+                        thread.join(storage.waitLimit());
+                    } else {
+                        thread.join();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -60,19 +66,19 @@ public class CssLintInspection extends LocalInspectionTool {
                 String output;
                 try {
                     output = thread.getOutput();
-                } catch (CssLintThread.CssLintThreadException e) {
+                } catch (WorkerThread.CssLintThreadException e) {
                     return;
                 }
 
-                ArrayList<CssLintIssue> issues = parseOutput(output, document);
+                ArrayList<Issue> issues = parseOutput(output, document);
 
-                for (CssLintIssue issue : issues) {
+                for (Issue issue : issues) {
                     holder.registerProblem(
                         holder.getManager().createProblemDescriptor(
                             file,
                             issue.getRange(),
                             "CSSLint: " + issue.getMessage(),
-                            issue.getType() == CssLintIssue.Type.Error ? ProblemHighlightType.ERROR : ProblemHighlightType.GENERIC_ERROR_OR_WARNING,
+                            issue.getType() == Issue.Type.Error ? ProblemHighlightType.ERROR : ProblemHighlightType.GENERIC_ERROR_OR_WARNING,
                             isOnTheFly
                         )
                     );
@@ -81,8 +87,8 @@ public class CssLintInspection extends LocalInspectionTool {
         };
     }
 
-    private ArrayList<CssLintIssue> parseOutput(String output, Document document) {
-        ArrayList<CssLintIssue> issues = new ArrayList<CssLintIssue>();
+    private ArrayList<Issue> parseOutput(String output, Document document) {
+        ArrayList<Issue> issues = new ArrayList<Issue>();
         String res[] = output.split("\n");
 
         for (String str : res) {
@@ -95,18 +101,18 @@ public class CssLintInspection extends LocalInspectionTool {
             int col = Integer.parseInt(parts[1].substring(4));
 
             String detail = StringUtils.join(Arrays.copyOfRange(parts, 2, parts.length));
-            CssLintIssue.Type type;
+            Issue.Type type;
             if (detail.substring(0, 5).equals("Error")) {
-                type = CssLintIssue.Type.Error;
+                type = Issue.Type.Error;
             } else {
-                type = CssLintIssue.Type.Warning;
+                type = Issue.Type.Warning;
             }
 
             String message = detail.substring(detail.indexOf("-") + 2);
             int offset = document.getLineStartOffset(line - 1) + col - 1;
             TextRange range = new TextRange(offset, document.getLineEndOffset(line - 1));
 
-            issues.add(new CssLintIssue(range, type, message));
+            issues.add(new Issue(range, type, message));
         }
 
         return issues;

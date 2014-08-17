@@ -31,7 +31,7 @@ import org.jetbrains.annotations.PropertyKey;
 import java.util.ResourceBundle;
 
 
-public final class CssLintBundle {
+public final class Bundle {
 
     public static String message(@NotNull @PropertyKey(resourceBundle = BUNDLE_NAME) String key, @NotNull Object... params) {
         return CommonBundle.message(BUNDLE, key, params);
@@ -41,7 +41,7 @@ public final class CssLintBundle {
     private static final String BUNDLE_NAME = "csslint.CssLintBundle";
     private static final ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME);
 
-    private CssLintBundle() {
+    private Bundle() {
     }
 }
 
