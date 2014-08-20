@@ -89,6 +89,11 @@ public class Inspection extends LocalInspectionTool {
 
     private ArrayList<Issue> parseOutput(String output, Document document) {
         ArrayList<Issue> issues = new ArrayList<Issue>();
+
+        if (output.isEmpty()) {
+            return issues;
+        }
+
         String res[] = output.split("\n");
 
         for (String str : res) {
