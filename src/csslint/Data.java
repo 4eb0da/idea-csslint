@@ -23,7 +23,7 @@ public class Data {
 
     public Data() {
         try {
-            csslintPath = Files.createTempDirectory("idea-csslint");
+            csslintPath = Files.createTempDirectory(Bundle.message("datadir.prefix"));
 
             for (String file : files) {
                 String dirName = Paths.get(csslintPath.toString(), file).getParent().toString();
@@ -31,23 +31,20 @@ public class Data {
                 if (!fileDir.exists()) {
                     boolean res = fileDir.mkdirs();
                     if (!res) {
-                        System.out.println("Cannot create folders");
-                        System.out.println(file);
-                        System.out.println(dirName);
+                        NotificationManager.showError("Cannot create folder: " + dirName);
                         return;
                     }
                 }
                 InputStream stream = getClass().getClassLoader().getResourceAsStream(file);
                 if (stream == null) {
-                    System.out.println("Cannot extract files");
-                    System.out.println(file);
+                    NotificationManager.showError("Cannot extract file: " + file);
                     return;
                 }
                 FileOutputStream output = new FileOutputStream(csslintPath.toString() + "/" + file);
                 IOUtils.copyStreamToStream(stream, output);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            NotificationManager.showError("Resources error: " + e.getMessage());
         }
     }
 

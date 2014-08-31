@@ -74,20 +74,10 @@ public class Inspection extends LocalInspectionTool {
 
                 for (Issue issue : issues) {
                     holder.registerProblem(
-                        /*new ProblemDescriptorBase(
-                            file, file,
-                            "CSSLint: " + issue.getMessage(),
-                            null,
-                            issue.getType() == Issue.Type.Error ? ProblemHighlightType.ERROR : ProblemHighlightType.GENERIC_ERROR_OR_WARNING,
-                            false,
-                            issue.getRange(),
-                            false,
-                            isOnTheFly
-                        )*/
                         holder.getManager().createProblemDescriptor(
                                 file,
                                 issue.getRange(),
-                                "CSSLint: " + issue.getMessage(),
+                                Bundle.message("inspection.prefix") + issue.getMessage(),
                                 issue.getType() == Issue.Type.Error ? ProblemHighlightType.ERROR : ProblemHighlightType.GENERIC_ERROR_OR_WARNING,
                                 isOnTheFly
                         )

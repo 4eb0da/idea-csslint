@@ -49,14 +49,14 @@ public class WorkerThread extends Thread {
             if (error.equals("")) {
                 res = true;
             } else {
-                System.out.println("CSSLint error: " + error);
+                NotificationManager.showError("CSSLint run failure:<br>" + error);
             }
 
         } catch (InterruptedException ignored) {
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            NotificationManager.showError("Temp file not found");
         } catch (IOException e) {
-            e.printStackTrace();
+            NotificationManager.showError("Cannot process temp file");
         }
     }
 
