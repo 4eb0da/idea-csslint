@@ -24,7 +24,7 @@
 
   <extensions defaultExtensionNs="com.intellij">
       <projectConfigurable instance="csslint.Settings"/>
-      <localInspection shortName="CSSLint" bundle="csslint.CssLintBundle"
+      <localInspection shortName="CSSLint" bundle="csslint.Bundle"
                        key="name" groupKey="group" enabledByDefault="true" level="WARNING"
                        implementationClass="csslint.Inspection"/>
   </extensions>

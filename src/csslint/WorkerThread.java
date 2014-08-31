@@ -13,7 +13,7 @@ public class WorkerThread extends Thread {
     private SettingsStorage storage;
     private boolean res;
 
-    public class CssLintThreadException extends Exception {}
+    public class ThreadException extends Exception {}
 
     public WorkerThread(Path path, String data, SettingsStorage storage) {
         this.path = path;
@@ -49,7 +49,7 @@ public class WorkerThread extends Thread {
             if (error.equals("")) {
                 res = true;
             } else {
-                System.out.println("CssLint error: " + error);
+                System.out.println("CSSLint error: " + error);
             }
 
         } catch (InterruptedException ignored) {
@@ -65,9 +65,9 @@ public class WorkerThread extends Thread {
         return s.hasNext() ? s.next() : "";
     }
 
-    public synchronized String getOutput() throws CssLintThreadException {
+    public synchronized String getOutput() throws ThreadException {
         if (!res) {
-            throw new CssLintThreadException();
+            throw new ThreadException();
         }
         return output;
     }

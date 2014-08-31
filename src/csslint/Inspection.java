@@ -66,7 +66,7 @@ public class Inspection extends LocalInspectionTool {
                 String output;
                 try {
                     output = thread.getOutput();
-                } catch (WorkerThread.CssLintThreadException e) {
+                } catch (WorkerThread.ThreadException e) {
                     return;
                 }
 
@@ -74,12 +74,22 @@ public class Inspection extends LocalInspectionTool {
 
                 for (Issue issue : issues) {
                     holder.registerProblem(
-                        holder.getManager().createProblemDescriptor(
-                            file,
-                            issue.getRange(),
+                        /*new ProblemDescriptorBase(
+                            file, file,
                             "CSSLint: " + issue.getMessage(),
+                            null,
                             issue.getType() == Issue.Type.Error ? ProblemHighlightType.ERROR : ProblemHighlightType.GENERIC_ERROR_OR_WARNING,
+                            false,
+                            issue.getRange(),
+                            false,
                             isOnTheFly
+                        )*/
+                        holder.getManager().createProblemDescriptor(
+                                file,
+                                issue.getRange(),
+                                "CSSLint: " + issue.getMessage(),
+                                issue.getType() == Issue.Type.Error ? ProblemHighlightType.ERROR : ProblemHighlightType.GENERIC_ERROR_OR_WARNING,
+                                isOnTheFly
                         )
                     );
                 }

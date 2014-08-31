@@ -38,7 +38,7 @@ public final class Bundle {
     }
 
     @NonNls
-    private static final String BUNDLE_NAME = "csslint.CssLintBundle";
+    private static final String BUNDLE_NAME = "csslint.Bundle";
     private static final ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME);
 
     private Bundle() {
