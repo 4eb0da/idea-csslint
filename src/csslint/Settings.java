@@ -63,32 +63,26 @@ public class Settings implements Configurable {
                 waitLimit.setEnabled(useWaitLimitCheckBox.isSelected());
             }
         });
-        
-        useWaitLimitCheckBox.setSelected(storage.useWaitLimit());
-        waitLimit.setValue(storage.waitLimit());
-        waitLimit.setEnabled(useWaitLimitCheckBox.isSelected());
 
         checkBoxes = new JCheckBox[]{
-            importantCheckBox, adjoiningClassesCheckBox, knownPropertiesCheckBox, boxSizingCheckBox, boxModelCheckBox,
-            overqualifiedElementsCheckBox, displayPropertyGroupingCheckBox, bulletproofFontFaceCheckBox,
-            compatibleVendorPrefixesCheckBox, regexSelectorsCheckBox, errorsCheckBox, duplicateBackgroundImagesCheckBox,
-            duplicatePropertiesCheckBox, emptyRulesCheckBox, selectorMaxApproachingCheckBox, gradientsCheckBox,
-            fallbackColorsCheckBox, fontSizesCheckBox, fontFacesCheckBox, floatsCheckBox, starPropertyHackCheckBox,
-            outlineNoneCheckBox, importCheckBox, idsCheckBox, underscorePropertyHackCheckBox, rulesCountCheckBox,
-            qualifiedHeadingsCheckBox, selectorMaxCheckBox, shorthandCheckBox, textIndentCheckBox,
-            uniqueHeadingsCheckBox, universalSelectorCheckBox, unqualifiedAttributesCheckBox, vendorPrefixCheckBox,
-            zeroUnitsCheckBox
+                importantCheckBox, adjoiningClassesCheckBox, knownPropertiesCheckBox, boxSizingCheckBox, boxModelCheckBox,
+                overqualifiedElementsCheckBox, displayPropertyGroupingCheckBox, bulletproofFontFaceCheckBox,
+                compatibleVendorPrefixesCheckBox, regexSelectorsCheckBox, errorsCheckBox, duplicateBackgroundImagesCheckBox,
+                duplicatePropertiesCheckBox, emptyRulesCheckBox, selectorMaxApproachingCheckBox, gradientsCheckBox,
+                fallbackColorsCheckBox, fontSizesCheckBox, fontFacesCheckBox, floatsCheckBox, starPropertyHackCheckBox,
+                outlineNoneCheckBox, importCheckBox, idsCheckBox, underscorePropertyHackCheckBox, rulesCountCheckBox,
+                qualifiedHeadingsCheckBox, selectorMaxCheckBox, shorthandCheckBox, textIndentCheckBox,
+                uniqueHeadingsCheckBox, universalSelectorCheckBox, unqualifiedAttributesCheckBox, vendorPrefixCheckBox,
+                zeroUnitsCheckBox
         };
-
-        for (JCheckBox checkBox : checkBoxes) {
-            checkBox.setSelected(storage.value(checkBox.getText()));
-        }
+        
+        this.reset();
     }
 
     @Nls
     @Override
     public String getDisplayName() {
-        return "CSSLint";
+        return Bundle.message("settings.title");
     }
 
     @Nullable
@@ -105,7 +99,20 @@ public class Settings implements Configurable {
 
     @Override
     public boolean isModified() {
-        return true;
+        if (storage.useWaitLimit() != useWaitLimitCheckBox.isSelected()){
+            return true;
+        }
+        if (useWaitLimitCheckBox.isSelected() && (Integer)waitLimit.getValue() != storage.waitLimit()) {
+            return true;
+        }
+
+        for (JCheckBox checkBox : checkBoxes) {
+            if (checkBox.isSelected() != storage.value(checkBox.getText())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override
@@ -122,7 +129,13 @@ public class Settings implements Configurable {
 
     @Override
     public void reset() {
+        useWaitLimitCheckBox.setSelected(storage.useWaitLimit());
+        waitLimit.setValue(storage.waitLimit());
+        waitLimit.setEnabled(useWaitLimitCheckBox.isSelected());
 
+        for (JCheckBox checkBox : checkBoxes) {
+            checkBox.setSelected(storage.value(checkBox.getText()));
+        }
     }
 
     @Override
