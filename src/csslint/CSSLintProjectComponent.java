@@ -33,7 +33,7 @@ public class CSSLintProjectComponent implements ProjectComponent {
 
     @Override
     public void disposeComponent() {
-        DataProvider.disposeResources();
+
     }
 
     @NotNull

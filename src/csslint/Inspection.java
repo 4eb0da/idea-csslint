@@ -77,7 +77,7 @@ public class Inspection extends LocalInspectionTool {
                         holder.getManager().createProblemDescriptor(
                                 file,
                                 issue.getRange(),
-                                Bundle.message("inspection.prefix") + issue.getMessage(),
+                                Bundle.message("inspection.prefix") + " " + issue.getMessage(),
                                 issue.getType() == Issue.Type.Error ? ProblemHighlightType.ERROR : ProblemHighlightType.GENERIC_ERROR_OR_WARNING,
                                 isOnTheFly
                         )
