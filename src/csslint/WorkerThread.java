@@ -1,10 +1,11 @@
 package csslint;
 
+import com.thoughtworks.xstream.io.path.Path;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.nio.file.Path;
 
 public class WorkerThread extends Thread {
     private Path path;
@@ -30,7 +31,7 @@ public class WorkerThread extends Thread {
             stream.print(data);
             stream.close();
 
-            File workingDir = new File(path.resolve("csslint/node_modules/csslint").toString());
+            File workingDir = new File(path.apply(new Path("csslint/node_modules/csslint")).toString());
             String ignore = storage.ignoreList();
             if (!ignore.isEmpty()) {
                 ignore = "--ignore=" + ignore + " ";

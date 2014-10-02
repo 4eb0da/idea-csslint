@@ -1,14 +1,12 @@
 package csslint;
 
+import com.thoughtworks.xstream.io.path.Path;
 import org.apache.sanselan.util.IOUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Data {
 
@@ -21,12 +19,28 @@ public class Data {
             "csslint/node_modules/csslint/node_modules/parserlib/lib/node-parserlib.js"
     };
 
+    public static Path createTempDirectory(String prefix) throws IOException {
+        final File temp;
+
+        temp = File.createTempFile(prefix, Long.toString(System.nanoTime()));
+
+        if (!(temp.delete())) {
+            throw new IOException("Could not delete temp file: " + temp.getAbsolutePath());
+        }
+
+        if (!(temp.mkdir())) {
+            throw new IOException("Could not create temp directory: " + temp.getAbsolutePath());
+        }
+
+        return new Path(temp.toString());
+    }
+
     public Data() {
         try {
-            csslintPath = Files.createTempDirectory(Bundle.message("datadir.prefix"));
+            csslintPath = createTempDirectory(Bundle.message("datadir.prefix"));
 
             for (String file : files) {
-                String dirName = Paths.get(csslintPath.toString(), file).getParent().toString();
+                String dirName = csslintPath.apply(new Path("./" + file)).apply(new Path("..")).toString();
                 File fileDir = new File(dirName);
                 if (!fileDir.exists()) {
                     boolean res = fileDir.mkdirs();

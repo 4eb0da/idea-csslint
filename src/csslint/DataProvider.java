@@ -1,7 +1,8 @@
 package csslint;
 
+import com.thoughtworks.xstream.io.path.Path;
+
 import java.io.File;
-import java.nio.file.Path;
 
 public class DataProvider {
     private static Data instance;
